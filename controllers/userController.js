@@ -28,6 +28,14 @@ const getUsers = async (req, res) => {
     res.send(result);
 }
 
+const deleteUser = async (req, res) => {
+    const result = await User.find()
+
+    const user_index = User.indexOf(result)
+    User.splice(user_index, 1);
+
+    res.send(XPathResult)
+}
 module.exports = {
-    createUser, getUsers
+    createUser, getUsers, deleteUser
 }
