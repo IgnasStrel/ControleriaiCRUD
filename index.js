@@ -10,12 +10,19 @@ app.use(express.json())
 const {
     createUser,
     getUsers,
+    getUserByName,
+    getUserById,
+    updateUser,
     deleteUser
+
 } = require('./controllers/userController');
 
 app.post('/api/user', createUser);
 app.get('/api/users', getUsers);
-app.delete('/api/user', deleteUser);
+app.get('/api/userbyname', getUserByName);
+app.get('/api/user/:id', getUserById);
+app.put('/api/user/:id', updateUser)
+app.delete('/api/user/:id', deleteUser);
 app.listen(process.env.PORT, ()=> {
     console.log(`Server is running on PORT ${process.env.PORT}`)
 });
